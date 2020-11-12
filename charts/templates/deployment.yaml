@@ -50,13 +50,12 @@ spec:
             tcpSocket:
               port: 22
           resources:
-            sftp:
-              limits:
-                cpu: 100m
-                memory: 128Mi
-              requests:
-                cpu: 100m
-                memory: 128Mi
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
       volumes:
       - name: sftp-config
         configMap:
