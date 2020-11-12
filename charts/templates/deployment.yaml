@@ -38,11 +38,6 @@ spec:
               mountPath: /etc/sftp/
             - name: data
               mountPath: /home/sftp/
-            #- name: authorized-keys
-            #  mountPath: /home/sftp/.ssh/keys/
-            # - name: ssh-host-keys
-            #   mountPath: /etc/ssh/ssh_host_rsa_key
-            #  subPath: ssh_host_rsa_key
           livenessProbe:
             tcpSocket:
               port: 22
@@ -60,13 +55,6 @@ spec:
       - name: sftp-config
         configMap:
           name: {{ include "sftp-server.fullname" . }}-users
-      #- name: authorized-keys
-      #  configMap:
-      #    name: {{ template "sftp-server.fullname" . }}-authorized-keys
-      #- name: ssh-host-keys
-      #  secret:
-      #    secretName: {{ .Values.sftpConfig.hostKeys.secret }}
-      #    defaultMode: 384
       - name: data
         persistentVolumeClaim:
           claimName: {{ template "sftp-server.fullname" . }}-data
