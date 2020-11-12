@@ -69,5 +69,4 @@ spec:
       #    defaultMode: 384
       - name: data
         persistentVolumeClaim:
-          size: 5Mi
-          #claimName: {{ template "sftp-server.fullname" . }}-data
+          claimName: {{ template "sftp-server.fullname" . }}-data
