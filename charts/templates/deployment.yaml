@@ -38,8 +38,8 @@ spec:
               mountPath: /etc/sftp/
             - name: data
               mountPath: /home/sftp/
-            - name: authorized-keys
-              mountPath: /home/sftp/.ssh/keys/
+            #- name: authorized-keys
+            #  mountPath: /home/sftp/.ssh/keys/
             # - name: ssh-host-keys
             #   mountPath: /etc/ssh/ssh_host_rsa_key
             #  subPath: ssh_host_rsa_key
