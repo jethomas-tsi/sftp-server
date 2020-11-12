@@ -26,9 +26,6 @@ spec:
         - name: sftp-server
           image: "quay.io/openvnf/sftp:alpine-3.7"
           imagePullPolicy: IfNotPresent
-          securityContext:
-            capabilities:
-              add: ["NET_ADMIN"]
           ports:
             - name: ssh
               containerPort: 22
