@@ -36,16 +36,15 @@ spec:
       - name: vxlan-controller-agent-init
         image: {{ .Values.vxlanController.image.repository }}:{{ .Values.vxlanController.image.tag }}
         imagePullPolicy: {{ .Values.vxlanController.image.pullPolicy  | quote }}
-        resources:
-{{ toYaml .Values.vxlanController.resources | indent 10 }}
+        resources: {{ toYaml .Values.vxlanController.resources | indent 10 }}
         securityContext:
           capabilities:
             add: ["NET_ADMIN"]
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "quay.io/openvnf/sftp:alpine-3.7"
+          imagePullPolicy: IfNotPresent
           securityContext:
             capabilities:
               add: ["NET_ADMIN"]
